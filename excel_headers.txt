@@ -1,0 +1,41 @@
+
+--- Sheet: Dashboard ---
+Headers: ['TUK-TUK BUSINESS DASHBOARD  —  2026', 'Unnamed: 1', 'Unnamed: 2', 'Unnamed: 3', 'Unnamed: 4', 'Unnamed: 5']
+   TUK-TUK BUSINESS DASHBOARD  —  2026         Unnamed: 1              Unnamed: 2  Unnamed: 3          Unnamed: 4       Unnamed: 5
+0                                  NaN                NaN                     NaN         NaN                 NaN              NaN
+1                                  NaN  TOTAL GROSS (KSh)  TOTAL NET PROFIT (KSh)         NaN  OWNER SALARY (KSh)  RIDER PAY (KSh)
+
+--- Sheet: Daily Tracker ---
+Headers: ['TUK-TUK DAILY TRACKER  —  2026', 'Unnamed: 1', 'Unnamed: 2', 'Unnamed: 3', 'Unnamed: 4', 'Unnamed: 5', 'Unnamed: 6', 'Unnamed: 7', 'Unnamed: 8', 'Unnamed: 9', 'Unnamed: 10', 'Unnamed: 11', 'Unnamed: 12', 'Unnamed: 13', 'Unnamed: 14', 'Unnamed: 15', 'Unnamed: 16', 'Unnamed: 17', 'Unnamed: 18', 'Unnamed: 19', 'Unnamed: 20']
+  TUK-TUK DAILY TRACKER  —  2026 Unnamed: 1 Unnamed: 2  Unnamed: 3 Unnamed: 4   Unnamed: 5    Unnamed: 6            Unnamed: 7                Unnamed: 8           Unnamed: 9         Unnamed: 10               Unnamed: 11            Unnamed: 12              Unnamed: 13             Unnamed: 14      Unnamed: 15           Unnamed: 16 Unnamed: 17               Unnamed: 18                  Unnamed: 19               Unnamed: 20
+0                           DATE    TIME IN   TIME OUT  START\nODO   END\nODO  COMMUTE\nKM  BUSINESS\nKM  GROSS\nINCOME\n(KSh)  ACTUAL\nFUEL COST\n(KSh)  START\nFLOAT\n(KSh)  NET\nPROFIT\n(KSh)  OWNER\nSALARY\n25% (KSh)  RIDER\nPAY\n25% (KSh)  MAINT.\nSAVE\n25% (KSh)  BIZ\nPROFIT\n25% (KSh)  FLOAT\nDEDUCTED  BANK\nDEPOSIT\n(KSh)       NOTES  INCOME\nPER KM\n(KSh/KM)  FUEL COST\nPER KM\n(KSh/KM)  FUEL\nEFFICIENCY\nSTATUS
+1            2026-03-01 00:00:00   09:00:00   18:00:00        1885       1921           10            26                  1400                       500                  200                 900                       225                    225                      225                     225              200                   250         NaN                 53.846154                    19.230769                   🔴 ALERT
+
+--- Sheet: Fuel Efficiency ---
+Headers: ['⛽  FUEL EFFICIENCY TRACKER  —  2026', 'Unnamed: 1', 'Unnamed: 2', 'Unnamed: 3', 'Unnamed: 4', 'Unnamed: 5', 'Unnamed: 6', 'Unnamed: 7']
+                                                                                     ⛽  FUEL EFFICIENCY TRACKER  —  2026            Unnamed: 1                Unnamed: 2    Unnamed: 3                Unnamed: 4                   Unnamed: 5        Unnamed: 6          Unnamed: 7
+0  BENCHMARKS:  ✅ GOOD = Fuel < 25% of Gross  |  ⚠️ HIGH = 25–35%  |  🔴 ALERT = > 35%  |  Target: ≥ KSh 20 earned per KM                   NaN                       NaN           NaN                       NaN                          NaN               NaN                 NaN
+1                                                                                                                   DATE  GROSS\nINCOME\n(KSh)  ACTUAL\nFUEL COST\n(KSh)  BUSINESS\nKM  INCOME\nPER KM\n(KSh/KM)  FUEL COST\nPER KM\n(KSh/KM)  FUEL %\nOF GROSS  EFFICIENCY\nSTATUS
+
+--- Sheet: Expense Tracker ---
+Headers: ['EXPENSE TRACKER  —  Maintenance & Repairs Log', 'Unnamed: 1', 'Unnamed: 2', 'Unnamed: 3', 'Unnamed: 4', 'Unnamed: 5', 'Unnamed: 6']
+  EXPENSE TRACKER  —  Maintenance & Repairs Log Unnamed: 1                Unnamed: 2          Unnamed: 3   Unnamed: 4 Unnamed: 5        Unnamed: 6
+0                                          DATE   CATEGORY  DESCRIPTION\n/ COMPONENT  MECHANIC\n/ VENDOR  COST\n(KSh)  PAID FROM  RECEIPT\n/ NOTES
+
+--- Sheet: Monthly Summary ---
+Headers: ['MONTHLY SUMMARY  —  2026', 'Unnamed: 1', 'Unnamed: 2']
+  MONTHLY SUMMARY  —  2026  Unnamed: 1 Unnamed: 2
+0                      NaN         NaN        NaN
+1       Total Gross Income     16100.0          -
+
+--- Sheet: Targets ---
+Headers: ['TARGETS & PERFORMANCE METRICS  —  2026', 'Unnamed: 1', 'Unnamed: 2']
+  TARGETS & PERFORMANCE METRICS  —  2026  Unnamed: 1              Unnamed: 2
+0                                    NaN         NaN                     NaN
+1               Daily Gross Target (KSh)      3000.0  Aim for this every day
+
+--- Sheet: Recommendations ---
+Headers: ['RULES & RECOMMENDATIONS  —  Tuk-Tuk Tracker 2026']
+                 RULES & RECOMMENDATIONS  —  Tuk-Tuk Tracker 2026
+0                                               DAILY ENTRY RULES
+1  1.  Enter gross income daily in column H of the Daily Tracker.

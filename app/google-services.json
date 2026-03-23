@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1096920413396",
+    "project_id": "tuktuk-tracker",
+    "storage_bucket": "tuktuk-tracker.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1096920413396:android:556c2fd23b6a8378ae3741",
+        "android_client_info": {
+          "package_name": "com.tuktuk.manager"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAaBKNJxZT94F9sRgPlrVqWiBHwg34AoKI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

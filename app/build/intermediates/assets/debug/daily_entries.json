@@ -1,0 +1,112 @@
+[
+  {
+    "date": "2026-03-01",
+    "timeIn": "09:00:00",
+    "timeOut": "18:00:00",
+    "startOdometer": 1885.0,
+    "endOdometer": 1921.0,
+    "grossIncome": 1400.0,
+    "actualFuelCost": 500.0,
+    "notes": ""
+  },
+  {
+    "date": "2026-03-02",
+    "timeIn": "09:00:00",
+    "timeOut": "18:00:00",
+    "startOdometer": 1921.0,
+    "endOdometer": 1983.0,
+    "grossIncome": 1000.0,
+    "actualFuelCost": 300.0,
+    "notes": ""
+  },
+  {
+    "date": "2026-03-03",
+    "timeIn": "09:00:00",
+    "timeOut": "18:00:00",
+    "startOdometer": 1983.0,
+    "endOdometer": 2045.0,
+    "grossIncome": 700.0,
+    "actualFuelCost": 200.0,
+    "notes": ""
+  },
+  {
+    "date": "2026-03-04",
+    "timeIn": "09:00:00",
+    "timeOut": "18:00:00",
+    "startOdometer": 2045.0,
+    "endOdometer": 2086.0,
+    "grossIncome": 1200.0,
+    "actualFuelCost": 300.0,
+    "notes": ""
+  },
+  {
+    "date": "2026-03-08",
+    "timeIn": "09:00:00",
+    "timeOut": "18:00:00",
+    "startOdometer": 2091.0,
+    "endOdometer": 2117.0,
+    "grossIncome": 1200.0,
+    "actualFuelCost": 300.0,
+    "notes": ""
+  },
+  {
+    "date": "2026-03-10",
+    "timeIn": "09:00:00",
+    "timeOut": "18:00:00",
+    "startOdometer": 2117.0,
+    "endOdometer": 2156.0,
+    "grossIncome": 2900.0,
+    "actualFuelCost": 750.0,
+    "notes": ""
+  },
+  {
+    "date": "2026-03-11",
+    "timeIn": "09:00:00",
+    "timeOut": "18:00:00",
+    "startOdometer": 2156.0,
+    "endOdometer": 2243.0,
+    "grossIncome": 1900.0,
+    "actualFuelCost": 500.0,
+    "notes": ""
+  },
+  {
+    "date": "2026-03-12",
+    "timeIn": "09:00:00",
+    "timeOut": "18:00:00",
+    "startOdometer": 2243.0,
+    "endOdometer": 2307.0,
+    "grossIncome": 1400.0,
+    "actualFuelCost": 400.0,
+    "notes": ""
+  },
+  {
+    "date": "2026-03-13",
+    "timeIn": "09:00:00",
+    "timeOut": "18:00:00",
+    "startOdometer": 2307.0,
+    "endOdometer": 2373.0,
+    "grossIncome": 1900.0,
+    "actualFuelCost": 550.0,
+    "notes": ""
+  },
+  {
+    "date": "2026-03-14",
+    "timeIn": "09:00:00",
+    "timeOut": "18:00:00",
+    "startOdometer": 2373.0,
+    "endOdometer": 2392.0,
+    "grossIncome": 400.0,
+    "actualFuelCost": 0.0,
+    "notes": ""
+  },
+  {
+    "date": "2026-03-15",
+    "timeIn": "09:00:00",
+    "timeOut": "18:00:00",
+    "startOdometer": 2392.0,
+    "endOdometer": 2489.0,
+    "grossIncome": 2100.0,
+    "actualFuelCost": 800.0,
+    "notes": ""
+  }
+]

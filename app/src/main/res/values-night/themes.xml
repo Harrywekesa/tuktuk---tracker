@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.TukTukManager" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/brand_orange</item>
+        <item name="colorOnPrimary">@color/brand_navy</item>
+        <item name="colorPrimaryContainer">@color/brand_orange_light</item>
+        <item name="colorOnPrimaryContainer">@color/brand_navy</item>
+
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/brand_teal</item>
+        <item name="colorOnSecondary">@color/dark_on_background</item>
+        <item name="colorSecondaryContainer">@color/brand_teal_light</item>
+        <item name="colorOnSecondaryContainer">@color/dark_background</item>
+
+        <!-- Background/Surface colors -->
+        <item name="android:colorBackground">@color/dark_background</item>
+        <item name="colorOnBackground">@color/dark_on_background</item>
+        <item name="colorSurface">@color/dark_surface</item>
+        <item name="colorOnSurface">@color/dark_on_surface</item>
+        <item name="colorSurfaceVariant">@color/dark_surface_elevated</item>
+        <item name="colorOnSurfaceVariant">@color/dark_hint</item>
+
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">?attr/colorSurface</item>
+        <item name="android:navigationBarColor">?attr/colorSurface</item>
+        <item name="android:windowLightStatusBar">false</item>
+
+        <item name="android:fontFamily">@font/inter</item>
+    </style>
+</resources>

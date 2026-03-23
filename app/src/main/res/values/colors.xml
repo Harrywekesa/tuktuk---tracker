@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Brand Colors -->
+    <color name="brand_navy">#0D1B2A</color>
+    <color name="brand_navy_light">#1A2E47</color>
+    <color name="brand_navy_medium">#243B55</color>
+    <color name="brand_orange">#F4A261</color>
+    <color name="brand_orange_dark">#E76F51</color>
+    <color name="brand_orange_light">#FFDAB9</color>
+    <color name="brand_orange_08">#14F4A261</color>
+    <color name="brand_teal">#2A9D8F</color>
+    <color name="brand_teal_light">#52B788</color>
+    <color name="brand_teal_08">#142A9D8F</color>
+    <color name="brand_yellow">#E9C46A</color>
+    <color name="brand_red">#E63946</color>
+    <color name="brand_red_light">#FF6B6B</color>
+    <color name="brand_green">#52B788</color>
+    <color name="brand_purple">#7B5EA7</color>
+
+    <!-- Dark Theme -->
+    <color name="dark_background">#0D1B2A</color>
+    <color name="dark_surface">#1A2E47</color>
+    <color name="dark_surface_elevated">#243B55</color>
+    <color name="dark_surface_card">#1E3448</color>
+    <color name="dark_on_background">#F0F4F8</color>
+    <color name="dark_on_surface">#CBD5E1</color>
+    <color name="dark_divider">#2A3F55</color>
+    <color name="dark_hint">#6B8CAE</color>
+
+    <!-- Light Theme -->
+    <color name="light_background">#F0F4F8</color>
+    <color name="light_surface">#FFFFFF</color>
+    <color name="light_surface_elevated">#F8FAFC</color>
+    <color name="light_surface_card">#FFFFFF</color>
+    <color name="light_on_background">#0D1B2A</color>
+    <color name="light_on_surface">#334155</color>
+    <color name="light_divider">#E2E8F0</color>
+    <color name="light_hint">#94A3B8</color>
+
+    <!-- Status Colors -->
+    <color name="status_good">#52B788</color>
+    <color name="status_good_bg">#1A3D2B</color>
+    <color name="status_warning">#E9C46A</color>
+    <color name="status_warning_bg">#3D3018</color>
+    <color name="status_alert">#E63946</color>
+    <color name="status_alert_bg">#3D1218</color>
+
+    <!-- Chart Colors -->
+    <color name="chart_owner">#F4A261</color>
+    <color name="chart_rider">#2A9D8F</color>
+    <color name="chart_maintenance">#E9C46A</color>
+    <color name="chart_profit">#52B788</color>
+    <color name="chart_fuel">#E63946</color>
+    <color name="chart_gross">#7B5EA7</color>
+
+    <!-- Transparent -->
+    <color name="transparent">#00000000</color>
+    <color name="overlay_dark">#80000000</color>
+    <color name="overlay_light">#40FFFFFF</color>
+</resources>

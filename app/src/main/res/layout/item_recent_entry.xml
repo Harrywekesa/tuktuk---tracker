@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingStart="16dp"
+    android:paddingEnd="16dp"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp"
+    android:gravity="center_vertical">
+
+    <!-- Status dot -->
+    <View
+        android:id="@+id/view_status_dot"
+        android:layout_width="8dp"
+        android:layout_height="8dp"
+        android:background="@drawable/bg_dot"
+        android:layout_marginEnd="12dp"/>
+
+    <!-- Day label -->
+    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:orientation="vertical" android:layout_marginEnd="12dp" android:minWidth="44dp">
+        <TextView android:id="@+id/tv_recent_dow" android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:textSize="10sp"
+            android:textColor="@color/brand_orange" android:textStyle="bold"
+            tools:text="Mon"/>
+        <TextView android:id="@+id/tv_recent_date" android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:textSize="12sp"
+            android:textStyle="bold" android:textColor="?attr/colorOnBackground"
+            tools:text="01 Mar"/>
+    </LinearLayout>
+
+    <!-- Amounts -->
+    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+        android:layout_weight="1" android:orientation="horizontal">
+        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_weight="1" android:orientation="vertical">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Gross" android:textSize="10sp" android:alpha="0.5"
+                android:textColor="?attr/colorOnBackground"/>
+            <TextView android:id="@+id/tv_recent_gross" android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:textSize="13sp"
+                android:textStyle="bold" android:textColor="?attr/colorOnBackground"
+                tools:text="KSh 1,900"/>
+        </LinearLayout>
+        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_weight="1" android:orientation="vertical">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Net" android:textSize="10sp" android:alpha="0.5"
+                android:textColor="?attr/colorOnBackground"/>
+            <TextView android:id="@+id/tv_recent_net" android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:textSize="13sp"
+                android:textStyle="bold" android:textColor="@color/brand_teal"
+                tools:text="KSh 1,400"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Chevron -->
+    <android.widget.ImageView android:layout_width="16dp" android:layout_height="16dp"
+        android:src="@drawable/ic_chevron_right" android:alpha="0.3"
+        android:tint="?attr/colorOnBackground"/>
+
+</LinearLayout>

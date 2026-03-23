@@ -1,0 +1,94 @@
+<resources>
+    <!-- Day application theme (Light) -->
+    <style name="Theme.TukTukManager" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/brand_navy</item>
+        <item name="colorOnPrimary">@color/light_background</item>
+        <item name="colorPrimaryContainer">@color/brand_navy</item>
+        <item name="colorOnPrimaryContainer">@color/light_background</item>
+        
+        <item name="colorSecondary">@color/brand_teal</item>
+        <item name="colorOnSecondary">@color/light_on_background</item>
+        <item name="colorSecondaryContainer">@color/brand_teal_light</item>
+        <item name="colorOnSecondaryContainer">@color/light_background</item>
+
+        <item name="android:colorBackground">@color/light_background</item>
+        <item name="colorOnBackground">@color/light_on_background</item>
+        <item name="colorSurface">@color/light_surface</item>
+        <item name="colorOnSurface">@color/light_on_surface</item>
+        <item name="colorSurfaceVariant">@color/light_background</item>
+        <item name="colorOnSurfaceVariant">@color/brand_navy</item>
+
+        <item name="android:statusBarColor">@color/brand_navy</item>
+        <item name="android:navigationBarColor">@color/light_background</item>
+        <item name="android:windowLightStatusBar">false</item>
+        
+        <item name="android:fontFamily">@font/inter</item>
+    </style>
+
+    <style name="Theme.TukTukManager.Splash" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/brand_navy</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_splash_logo</item>
+        <item name="postSplashScreenTheme">@style/Theme.TukTukManager</item>
+    </style>
+
+    <style name="Widget.TukTukManager.Card" parent="Widget.Material3.CardView.Elevated">
+        <item name="cardCornerRadius">16dp</item>
+        <item name="cardElevation">0dp</item>
+        <item name="cardBackgroundColor">@color/dark_surface_card</item>
+        <item name="contentPadding">16dp</item>
+    </style>
+
+    <style name="Widget.TukTukManager.Button.Primary" parent="Widget.Material3.Button">
+        <item name="android:backgroundTint">@color/brand_orange</item>
+        <item name="android:textColor">@color/brand_navy</item>
+        <item name="cornerRadius">12dp</item>
+        <item name="android:fontFamily">@font/inter_semibold</item>
+        <item name="android:letterSpacing">0.02</item>
+    </style>
+
+    <style name="Widget.TukTukManager.FAB" parent="Widget.Material3.FloatingActionButton.Primary">
+        <item name="backgroundTint">@color/brand_orange</item>
+        <item name="tint">@color/brand_navy</item>
+    </style>
+
+    <style name="TextStyle.TukTukManager.Display" parent="TextAppearance.Material3.DisplaySmall">
+        <item name="android:fontFamily">@font/inter_bold</item>
+        <item name="android:textColor">@color/dark_on_background</item>
+    </style>
+
+    <style name="TextStyle.TukTukManager.Amount" parent="TextAppearance.Material3.HeadlineMedium">
+        <item name="android:fontFamily">@font/inter_bold</item>
+        <item name="android:textColor">@color/brand_orange</item>
+    </style>
+
+    <style name="TextStyle.TukTukManager.Label" parent="TextAppearance.Material3.BodySmall">
+        <item name="android:fontFamily">@font/inter</item>
+        <item name="android:textColor">@color/dark_hint</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:letterSpacing">0.08</item>
+    </style>
+
+    <style name="Widget.TukTukManager.TextInputLayout" parent="Widget.Material3.TextInputLayout.OutlinedBox">
+        <item name="boxCornerRadiusBottomEnd">12dp</item>
+        <item name="boxCornerRadiusBottomStart">12dp</item>
+        <item name="boxCornerRadiusTopEnd">12dp</item>
+        <item name="boxCornerRadiusTopStart">12dp</item>
+        <item name="boxStrokeColor">@color/brand_orange</item>
+        <item name="hintTextColor">@color/brand_orange</item>
+        <item name="boxStrokeWidth">1.5dp</item>
+    </style>
+
+    <style name="Widget.TukTukManager.BottomNav" parent="Widget.Material3.BottomNavigationView">
+        <item name="backgroundTint">@color/dark_surface</item>
+        <item name="itemIconTint">@color/bottom_nav_icon_color</item>
+        <item name="itemTextColor">@color/bottom_nav_icon_color</item>
+        <item name="labelVisibilityMode">labeled</item>
+    </style>
+
+    <style name="Widget.TukTukManager.Chip" parent="Widget.Material3.Chip.Filter">
+        <item name="chipBackgroundColor">@color/chip_background_color</item>
+        <item name="chipStrokeColor">@color/dark_divider</item>
+        <item name="chipStrokeWidth">1dp</item>
+        <item name="android:textColor">@color/dark_on_surface</item>
+    </style>
+</resources>

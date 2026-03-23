@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?android:attr/colorBackground">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorSurface"
+        app:elevation="0dp">
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:paddingTop="16dp"
+            app:navigationIcon="@drawable/ic_close"
+            app:navigationIconTint="?attr/colorOnSurface"
+            app:title="Add Expense"
+            app:titleTextColor="?attr/colorOnSurface"/>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="24dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Date -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                style="@style/Widget.TukTukManager.TextInputLayout"
+                android:hint="Date" app:startIconDrawable="@drawable/ic_calendar"
+                app:startIconTint="@color/brand_orange">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_expense_date" android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:focusable="false" android:inputType="none"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Category dropdown -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:hint="Category" app:startIconDrawable="@drawable/ic_category"
+                app:startIconTint="@color/brand_orange">
+                <AutoCompleteTextView
+                    android:id="@+id/actv_category" android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:inputType="none"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Description -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                style="@style/Widget.TukTukManager.TextInputLayout"
+                android:hint="Description / Component" app:startIconDrawable="@drawable/ic_notes"
+                app:startIconTint="@color/brand_orange">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_description" android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:inputType="textCapSentences"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Mechanic -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                style="@style/Widget.TukTukManager.TextInputLayout"
+                android:hint="Mechanic / Vendor (optional)" app:startIconDrawable="@drawable/ic_person"
+                app:startIconTint="@color/brand_orange">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_mechanic" android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:inputType="textCapWords"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Cost -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                style="@style/Widget.TukTukManager.TextInputLayout"
+                android:hint="Cost (KSh)" app:startIconDrawable="@drawable/ic_money"
+                app:startIconTint="@color/brand_orange" app:prefixText="KSh ">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_cost" android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:inputType="numberDecimal"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Paid From dropdown -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:hint="Paid From" app:startIconDrawable="@drawable/ic_wallet"
+                app:startIconTint="@color/brand_orange">
+                <AutoCompleteTextView
+                    android:id="@+id/actv_paid_from" android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:inputType="none"
+                    android:text="Maintenance Fund"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Notes -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                style="@style/Widget.TukTukManager.TextInputLayout"
+                android:hint="Receipt / Notes (optional)" app:startIconDrawable="@drawable/ic_receipt"
+                app:startIconTint="@color/brand_orange">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_expense_notes" android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:inputType="textMultiLine"
+                    android:lines="2"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_save_expense"
+                android:layout_width="match_parent" android:layout_height="56dp"
+                style="@style/Widget.TukTukManager.Button.Primary"
+                android:text="Save Expense" android:textSize="16sp"/>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?android:attr/colorBackground">
+
+    <!-- Toolbar -->
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorSurface"
+        app:elevation="0dp">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:paddingTop="16dp"
+            app:navigationIcon="@drawable/ic_close"
+            app:navigationIconTint="?attr/colorOnSurface"
+            app:title="Daily Entry"
+            app:titleTextColor="?attr/colorOnSurface"
+            app:titleTextAppearance="@style/TextAppearance.Material3.TitleLarge" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="24dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Live Calculation Preview Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="0dp"
+                app:cardBackgroundColor="@color/brand_navy_medium">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="LIVE CALCULATION"
+                        android:textColor="#80FFFFFF"
+                        android:textSize="10sp"
+                        android:letterSpacing="0.12" />
+
+                    <TextView
+                        android:id="@+id/tv_preview_net"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="KSh 0"
+                        android:textColor="@color/brand_orange"
+                        android:textSize="36sp"
+                        android:textStyle="bold"
+                        tools:text="KSh 900" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Net Profit"
+                        android:textColor="#60FFFFFF"
+                        android:textSize="12sp" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginBottom="16dp"
+                        android:background="#20FFFFFF" />
+
+                    <GridLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:columnCount="2"
+                        android:rowCount="2">
+
+                        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                            android:layout_columnWeight="1" android:layout_margin="4dp"
+                            android:orientation="vertical">
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                android:text="💼 Your Salary" android:textColor="#80FFFFFF" android:textSize="11sp" />
+                            <TextView android:id="@+id/tv_preview_owner" android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" android:textColor="@color/chart_owner"
+                                android:textSize="16sp" android:textStyle="bold" tools:text="KSh 225" />
+                        </LinearLayout>
+
+                        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                            android:layout_columnWeight="1" android:layout_margin="4dp"
+                            android:orientation="vertical">
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                android:text="🛺 Rider Pay" android:textColor="#80FFFFFF" android:textSize="11sp" />
+                            <TextView android:id="@+id/tv_preview_rider" android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" android:textColor="@color/chart_rider"
+                                android:textSize="16sp" android:textStyle="bold" tools:text="KSh 225" />
+                        </LinearLayout>
+
+                        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                            android:layout_columnWeight="1" android:layout_margin="4dp"
+                            android:orientation="vertical">
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                android:text="🔧 Maintenance" android:textColor="#80FFFFFF" android:textSize="11sp" />
+                            <TextView android:id="@+id/tv_preview_maint" android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" android:textColor="@color/chart_maintenance"
+                                android:textSize="16sp" android:textStyle="bold" tools:text="KSh 225" />
+                        </LinearLayout>
+
+                        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                            android:layout_columnWeight="1" android:layout_margin="4dp"
+                            android:orientation="vertical">
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                android:text="📈 Biz Profit" android:textColor="#80FFFFFF" android:textSize="11sp" />
+                            <TextView android:id="@+id/tv_preview_biz" android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" android:textColor="@color/chart_profit"
+                                android:textSize="16sp" android:textStyle="bold" tools:text="KSh 225" />
+                        </LinearLayout>
+
+                    </GridLayout>
+
+                    <View android:layout_width="match_parent" android:layout_height="1dp"
+                        android:layout_marginTop="16dp" android:layout_marginBottom="12dp"
+                        android:background="#20FFFFFF" />
+
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:orientation="horizontal" android:gravity="center_vertical">
+                        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                            android:layout_weight="1" android:orientation="vertical">
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                android:text="🏦 Bank Deposit" android:textColor="#80FFFFFF" android:textSize="11sp" />
+                            <TextView android:id="@+id/tv_preview_bank" android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" android:textColor="@color/brand_green"
+                                android:textSize="20sp" android:textStyle="bold" tools:text="KSh 250" />
+                        </LinearLayout>
+                        <TextView android:id="@+id/tv_preview_fuel_status" android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" android:textSize="14sp"
+                            android:textStyle="bold" tools:text="⚠️ HIGH" />
+                    </LinearLayout>
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Section: Basic Info -->
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="TRIP DETAILS" android:textColor="?attr/colorOnBackground"
+                android:textSize="11sp" android:textStyle="bold" android:alpha="0.5"
+                android:letterSpacing="0.1" android:layout_marginBottom="12dp" />
+
+            <!-- Date -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                style="@style/Widget.TukTukManager.TextInputLayout"
+                android:hint="Date"
+                app:startIconDrawable="@drawable/ic_calendar"
+                app:startIconTint="@color/brand_orange">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_date"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:focusable="false"
+                    android:inputType="none" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Time Row -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:layout_marginBottom="12dp">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/til_time_in"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="6dp"
+                    style="@style/Widget.TukTukManager.TextInputLayout"
+                    android:hint="Time In"
+                    app:startIconDrawable="@drawable/ic_time"
+                    app:startIconTint="@color/brand_orange">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_time_in"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:focusable="false"
+                        android:inputType="none" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/til_time_out"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="6dp"
+                    style="@style/Widget.TukTukManager.TextInputLayout"
+                    android:hint="Time Out"
+                    app:startIconDrawable="@drawable/ic_time"
+                    app:startIconTint="@color/brand_orange">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_time_out"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:focusable="false"
+                        android:inputType="none" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+            <!-- Odometer Row -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:layout_marginBottom="12dp">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/til_start_odo"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="6dp"
+                    style="@style/Widget.TukTukManager.TextInputLayout"
+                    android:hint="Start Odo (KM)"
+                    app:startIconDrawable="@drawable/ic_speed"
+                    app:startIconTint="@color/brand_orange">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_start_odo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="numberDecimal" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/til_end_odo"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="6dp"
+                    style="@style/Widget.TukTukManager.TextInputLayout"
+                    android:hint="End Odo (KM)"
+                    app:startIconDrawable="@drawable/ic_speed"
+                    app:startIconTint="@color/brand_orange">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_end_odo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="numberDecimal" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+            <!-- Business KM hint -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_km_hint"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:visibility="gone"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="0dp"
+                app:cardBackgroundColor="@color/brand_teal_08">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:padding="12dp" android:gravity="center_vertical">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="📍 " android:textSize="14sp" />
+                    <TextView android:id="@+id/tv_km_hint" android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:textSize="13sp"
+                        android:textColor="@color/brand_teal" android:textStyle="bold"
+                        tools:text="Business KM: 26 KM (commute 10 KM deducted)" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Section: Income & Fuel -->
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="INCOME &amp; FUEL" android:textColor="?attr/colorOnBackground"
+                android:textSize="11sp" android:textStyle="bold" android:alpha="0.5"
+                android:letterSpacing="0.1" android:layout_marginBottom="12dp" />
+
+            <!-- Gross Income -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_gross"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                style="@style/Widget.TukTukManager.TextInputLayout"
+                android:hint="Gross Income (KSh)"
+                app:startIconDrawable="@drawable/ic_money"
+                app:startIconTint="@color/brand_orange"
+                app:prefixText="KSh ">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_gross"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:imeOptions="actionNext" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Fuel Cost -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_fuel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                style="@style/Widget.TukTukManager.TextInputLayout"
+                android:hint="Actual Fuel Cost (KSh)"
+                app:startIconDrawable="@drawable/ic_fuel"
+                app:startIconTint="@color/brand_orange"
+                app:prefixText="KSh ">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_fuel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:imeOptions="actionNext" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Notes -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_notes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                style="@style/Widget.TukTukManager.TextInputLayout"
+                android:hint="Notes (optional)"
+                app:startIconDrawable="@drawable/ic_notes"
+                app:startIconTint="@color/brand_orange">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_notes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textMultiLine"
+                    android:lines="2"
+                    android:imeOptions="actionDone" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Save Button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_save"
+                android:layout_width="match_parent" android:layout_height="56dp"
+                style="@style/Widget.TukTukManager.Button.Primary"
+                android:text="Save Entry"
+                android:textSize="16sp" />
+
+            <!-- Delete button (only visible in edit mode) -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_delete"
+                android:layout_width="match_parent" android:layout_height="56dp"
+                android:layout_marginTop="8dp"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:text="Delete Entry"
+                android:textColor="@color/status_alert"
+                app:strokeColor="@color/status_alert"
+                android:visibility="gone" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
