@@ -36,6 +36,10 @@
         "source": "C:\\Users\\Pi\\.gradle\\daemon\\8.5\\com.tuktuk.manager.app-main-73:\\layout\\fragment_history.xml"
     },
     {
+        "merged": "com.tuktuk.manager.app-mergeDebugResources-70:/layout/fragment_daily_entry.xml",
+        "source": "com.tuktuk.manager.app-main-73:/layout/fragment_daily_entry.xml"
+    },
+    {
         "merged": "C:\\Users\\Pi\\.gradle\\daemon\\8.5\\com.tuktuk.manager.app-mergeDebugResources-70:\\layout\\item_daily_entry.xml",
         "source": "C:\\Users\\Pi\\.gradle\\daemon\\8.5\\com.tuktuk.manager.app-main-73:\\layout\\item_daily_entry.xml"
     },
@@ -50,10 +54,6 @@
     {
         "merged": "C:\\Users\\Pi\\.gradle\\daemon\\8.5\\com.tuktuk.manager.app-mergeDebugResources-70:\\layout\\fragment_expenses.xml",
         "source": "C:\\Users\\Pi\\.gradle\\daemon\\8.5\\com.tuktuk.manager.app-main-73:\\layout\\fragment_expenses.xml"
-    },
-    {
-        "merged": "com.tuktuk.manager.app-mergeDebugResources-70:/layout/fragment_entry_detail.xml",
-        "source": "com.tuktuk.manager.app-main-73:/layout/fragment_entry_detail.xml"
     },
     {
         "merged": "C:\\Users\\Pi\\.gradle\\daemon\\8.5\\com.tuktuk.manager.app-mergeDebugResources-70:\\layout\\fragment_settings.xml",

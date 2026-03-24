@@ -19,7 +19,8 @@ class DailyEntryViewModel(private val repo: TukTukRepository) : ViewModel() {
         val fuel = state.fuelCost
         val net = if (gross > 0) gross - fuel else 0.0
         val each = net * 0.25
-        val bank = each + each - 200.0   // maint + biz - float
+        val floatDeduction = if (state.deductFloat) 200.0 else 0.0
+        val bank = each + each - floatDeduction
         val fuelPct = if (gross > 0) fuel / gross else 0.0
         val fuelStatus = when {
             gross <= 0 -> DailyEntry.FuelStatus.NONE
@@ -58,6 +59,7 @@ class DailyEntryViewModel(private val repo: TukTukRepository) : ViewModel() {
                     grossIncome = entry.grossIncome,
                     fuelCost = entry.actualFuelCost,
                     notes = entry.notes,
+                    deductFloat = entry.deductFloat,
                     isEditMode = true
                 )
             }
@@ -72,6 +74,7 @@ class DailyEntryViewModel(private val repo: TukTukRepository) : ViewModel() {
     fun setGross(value: Double) = _uiState.update { it.copy(grossIncome = value) }
     fun setFuel(value: Double) = _uiState.update { it.copy(fuelCost = value) }
     fun setNotes(text: String) = _uiState.update { it.copy(notes = text) }
+    fun setDeductFloat(value: Boolean) = _uiState.update { it.copy(deductFloat = value) }
 
     fun saveEntry() {
         val state = _uiState.value
@@ -92,7 +95,8 @@ class DailyEntryViewModel(private val repo: TukTukRepository) : ViewModel() {
                             endOdometer = state.endOdo,
                             grossIncome = state.grossIncome,
                             actualFuelCost = state.fuelCost,
-                            notes = state.notes
+                            notes = state.notes,
+                            deductFloat = state.deductFloat
                         )
                     )
                 } else {
@@ -111,7 +115,8 @@ class DailyEntryViewModel(private val repo: TukTukRepository) : ViewModel() {
                             endOdometer = state.endOdo,
                             grossIncome = state.grossIncome,
                             actualFuelCost = state.fuelCost,
-                            notes = state.notes
+                            notes = state.notes,
+                            deductFloat = state.deductFloat
                         )
                     )
                 }
@@ -143,6 +148,7 @@ data class DailyEntryUiState(
     val grossIncome: Double = 0.0,
     val fuelCost: Double = 0.0,
     val notes: String = "",
+    val deductFloat: Boolean = true,
     val isEditMode: Boolean = false,
     val isSaving: Boolean = false,
     val savedSuccessfully: Boolean = false,

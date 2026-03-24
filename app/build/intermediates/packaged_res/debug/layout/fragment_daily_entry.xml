@@ -348,6 +348,17 @@
                     android:imeOptions="actionDone" />
             </com.google.android.material.textfield.TextInputLayout>
 
+            <!-- Deduct Float Toggle -->
+            <com.google.android.material.materialswitch.MaterialSwitch
+                android:id="@+id/switch_deduct_float"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                android:text="Deduct Tomorrow\'s Float (200 Ksh)"
+                android:textSize="15sp"
+                app:thumbTint="@color/brand_orange"
+                app:trackTint="@color/brand_teal" />
+
             <!-- Save Button -->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_save"

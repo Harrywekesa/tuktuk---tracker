@@ -17,7 +17,7 @@ import kotlinx.coroutines.launch
 
 @Database(
     entities = [DailyEntry::class, Expense::class, AppSettings::class],
-    version = 1,
+    version = 2,
     exportSchema = false
 )
 abstract class TukTukDatabase : RoomDatabase() {
@@ -27,6 +27,12 @@ abstract class TukTukDatabase : RoomDatabase() {
     abstract fun settingsDao(): SettingsDao
 
     companion object {
+        val MIGRATION_1_2 = object : androidx.room.migration.Migration(1, 2) {
+            override fun migrate(db: SupportSQLiteDatabase) {
+                db.execSQL("ALTER TABLE daily_entries ADD COLUMN deductFloat INTEGER NOT NULL DEFAULT 1")
+            }
+        }
+
         @Volatile
         private var INSTANCE: TukTukDatabase? = null
 
@@ -48,6 +54,7 @@ abstract class TukTukDatabase : RoomDatabase() {
                         }
                     }
                 })
+                .addMigrations(MIGRATION_1_2)
                 .fallbackToDestructiveMigration()
                 .build()
                 INSTANCE = instance

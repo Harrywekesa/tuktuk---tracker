@@ -8,6 +8,10 @@
         "source": "C:\\Users\\Pi\\.gradle\\daemon\\8.5\\com.tuktuk.manager.app-main-73:\\layout\\fragment_daily_entry.xml"
     },
     {
+        "merged": "com.tuktuk.manager.app-merged_res-71:/layout_fragment_daily_entry.xml.flat",
+        "source": "com.tuktuk.manager.app-main-73:/layout/fragment_daily_entry.xml"
+    },
+    {
         "merged": "C:\\Users\\Pi\\.gradle\\daemon\\8.5\\com.tuktuk.manager.app-merged_res-71:\\layout_fragment_entry_detail.xml.flat",
         "source": "C:\\Users\\Pi\\.gradle\\daemon\\8.5\\com.tuktuk.manager.app-main-73:\\layout\\fragment_entry_detail.xml"
     },
@@ -80,12 +84,12 @@
         "source": "C:\\Users\\Pi\\.gradle\\daemon\\8.5\\com.tuktuk.manager.app-main-73:\\drawable\\ic_wallet.xml"
     },
     {
-        "merged": "C:\\Users\\Pi\\.gradle\\daemon\\8.5\\com.tuktuk.manager.app-merged_res-71:\\layout_item_daily_entry.xml.flat",
-        "source": "C:\\Users\\Pi\\.gradle\\daemon\\8.5\\com.tuktuk.manager.app-main-73:\\layout\\item_daily_entry.xml"
-    },
-    {
         "merged": "C:\\Users\\Pi\\.gradle\\daemon\\8.5\\com.tuktuk.manager.app-merged_res-71:\\anim_fade_in.xml.flat",
         "source": "C:\\Users\\Pi\\.gradle\\daemon\\8.5\\com.tuktuk.manager.app-main-73:\\anim\\fade_in.xml"
+    },
+    {
+        "merged": "C:\\Users\\Pi\\.gradle\\daemon\\8.5\\com.tuktuk.manager.app-merged_res-71:\\layout_item_daily_entry.xml.flat",
+        "source": "C:\\Users\\Pi\\.gradle\\daemon\\8.5\\com.tuktuk.manager.app-main-73:\\layout\\item_daily_entry.xml"
     },
     {
         "merged": "C:\\Users\\Pi\\.gradle\\daemon\\8.5\\com.tuktuk.manager.app-merged_res-71:\\xml_backup_rules.xml.flat",
@@ -130,10 +134,6 @@
     {
         "merged": "C:\\Users\\Pi\\.gradle\\daemon\\8.5\\com.tuktuk.manager.app-merged_res-71:\\drawable_ic_expenses.xml.flat",
         "source": "C:\\Users\\Pi\\.gradle\\daemon\\8.5\\com.tuktuk.manager.app-main-73:\\drawable\\ic_expenses.xml"
-    },
-    {
-        "merged": "com.tuktuk.manager.app-merged_res-71:/layout_fragment_entry_detail.xml.flat",
-        "source": "com.tuktuk.manager.app-main-73:/layout/fragment_entry_detail.xml"
     },
     {
         "merged": "C:\\Users\\Pi\\.gradle\\daemon\\8.5\\com.tuktuk.manager.app-merged_res-71:\\layout_fragment_add_expense.xml.flat",

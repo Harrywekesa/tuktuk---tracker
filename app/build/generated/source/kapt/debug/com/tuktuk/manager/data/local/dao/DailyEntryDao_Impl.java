@@ -51,7 +51,7 @@ public final class DailyEntryDao_Impl implements DailyEntryDao {
       @Override
       @NonNull
       protected String createQuery() {
-        return "INSERT OR REPLACE INTO `daily_entries` (`id`,`date`,`timeIn`,`timeOut`,`startOdometer`,`endOdometer`,`grossIncome`,`actualFuelCost`,`notes`,`isSynced`,`createdAt`,`updatedAt`) VALUES (nullif(?, 0),?,?,?,?,?,?,?,?,?,?,?)";
+        return "INSERT OR REPLACE INTO `daily_entries` (`id`,`date`,`timeIn`,`timeOut`,`startOdometer`,`endOdometer`,`grossIncome`,`actualFuelCost`,`notes`,`isSynced`,`deductFloat`,`createdAt`,`updatedAt`) VALUES (nullif(?, 0),?,?,?,?,?,?,?,?,?,?,?,?)";
       }
 
       @Override
@@ -84,8 +84,10 @@ public final class DailyEntryDao_Impl implements DailyEntryDao {
         }
         final int _tmp = entity.isSynced() ? 1 : 0;
         statement.bindLong(10, _tmp);
-        statement.bindLong(11, entity.getCreatedAt());
-        statement.bindLong(12, entity.getUpdatedAt());
+        final int _tmp_1 = entity.getDeductFloat() ? 1 : 0;
+        statement.bindLong(11, _tmp_1);
+        statement.bindLong(12, entity.getCreatedAt());
+        statement.bindLong(13, entity.getUpdatedAt());
       }
     };
     this.__deletionAdapterOfDailyEntry = new EntityDeletionOrUpdateAdapter<DailyEntry>(__db) {
@@ -105,7 +107,7 @@ public final class DailyEntryDao_Impl implements DailyEntryDao {
       @Override
       @NonNull
       protected String createQuery() {
-        return "UPDATE OR ABORT `daily_entries` SET `id` = ?,`date` = ?,`timeIn` = ?,`timeOut` = ?,`startOdometer` = ?,`endOdometer` = ?,`grossIncome` = ?,`actualFuelCost` = ?,`notes` = ?,`isSynced` = ?,`createdAt` = ?,`updatedAt` = ? WHERE `id` = ?";
+        return "UPDATE OR ABORT `daily_entries` SET `id` = ?,`date` = ?,`timeIn` = ?,`timeOut` = ?,`startOdometer` = ?,`endOdometer` = ?,`grossIncome` = ?,`actualFuelCost` = ?,`notes` = ?,`isSynced` = ?,`deductFloat` = ?,`createdAt` = ?,`updatedAt` = ? WHERE `id` = ?";
       }
 
       @Override
@@ -138,9 +140,11 @@ public final class DailyEntryDao_Impl implements DailyEntryDao {
         }
         final int _tmp = entity.isSynced() ? 1 : 0;
         statement.bindLong(10, _tmp);
-        statement.bindLong(11, entity.getCreatedAt());
-        statement.bindLong(12, entity.getUpdatedAt());
-        statement.bindLong(13, entity.getId());
+        final int _tmp_1 = entity.getDeductFloat() ? 1 : 0;
+        statement.bindLong(11, _tmp_1);
+        statement.bindLong(12, entity.getCreatedAt());
+        statement.bindLong(13, entity.getUpdatedAt());
+        statement.bindLong(14, entity.getId());
       }
     };
     this.__preparedStmtOfMarkSynced = new SharedSQLiteStatement(__db) {
@@ -252,6 +256,7 @@ public final class DailyEntryDao_Impl implements DailyEntryDao {
           final int _cursorIndexOfActualFuelCost = CursorUtil.getColumnIndexOrThrow(_cursor, "actualFuelCost");
           final int _cursorIndexOfNotes = CursorUtil.getColumnIndexOrThrow(_cursor, "notes");
           final int _cursorIndexOfIsSynced = CursorUtil.getColumnIndexOrThrow(_cursor, "isSynced");
+          final int _cursorIndexOfDeductFloat = CursorUtil.getColumnIndexOrThrow(_cursor, "deductFloat");
           final int _cursorIndexOfCreatedAt = CursorUtil.getColumnIndexOrThrow(_cursor, "createdAt");
           final int _cursorIndexOfUpdatedAt = CursorUtil.getColumnIndexOrThrow(_cursor, "updatedAt");
           final List<DailyEntry> _result = new ArrayList<DailyEntry>(_cursor.getCount());
@@ -295,11 +300,15 @@ public final class DailyEntryDao_Impl implements DailyEntryDao {
             final int _tmp;
             _tmp = _cursor.getInt(_cursorIndexOfIsSynced);
             _tmpIsSynced = _tmp != 0;
+            final boolean _tmpDeductFloat;
+            final int _tmp_1;
+            _tmp_1 = _cursor.getInt(_cursorIndexOfDeductFloat);
+            _tmpDeductFloat = _tmp_1 != 0;
             final long _tmpCreatedAt;
             _tmpCreatedAt = _cursor.getLong(_cursorIndexOfCreatedAt);
             final long _tmpUpdatedAt;
             _tmpUpdatedAt = _cursor.getLong(_cursorIndexOfUpdatedAt);
-            _item = new DailyEntry(_tmpId,_tmpDate,_tmpTimeIn,_tmpTimeOut,_tmpStartOdometer,_tmpEndOdometer,_tmpGrossIncome,_tmpActualFuelCost,_tmpNotes,_tmpIsSynced,_tmpCreatedAt,_tmpUpdatedAt);
+            _item = new DailyEntry(_tmpId,_tmpDate,_tmpTimeIn,_tmpTimeOut,_tmpStartOdometer,_tmpEndOdometer,_tmpGrossIncome,_tmpActualFuelCost,_tmpNotes,_tmpIsSynced,_tmpDeductFloat,_tmpCreatedAt,_tmpUpdatedAt);
             _result.add(_item);
           }
           return _result;
@@ -343,6 +352,7 @@ public final class DailyEntryDao_Impl implements DailyEntryDao {
           final int _cursorIndexOfActualFuelCost = CursorUtil.getColumnIndexOrThrow(_cursor, "actualFuelCost");
           final int _cursorIndexOfNotes = CursorUtil.getColumnIndexOrThrow(_cursor, "notes");
           final int _cursorIndexOfIsSynced = CursorUtil.getColumnIndexOrThrow(_cursor, "isSynced");
+          final int _cursorIndexOfDeductFloat = CursorUtil.getColumnIndexOrThrow(_cursor, "deductFloat");
           final int _cursorIndexOfCreatedAt = CursorUtil.getColumnIndexOrThrow(_cursor, "createdAt");
           final int _cursorIndexOfUpdatedAt = CursorUtil.getColumnIndexOrThrow(_cursor, "updatedAt");
           final DailyEntry _result;
@@ -385,11 +395,15 @@ public final class DailyEntryDao_Impl implements DailyEntryDao {
             final int _tmp;
             _tmp = _cursor.getInt(_cursorIndexOfIsSynced);
             _tmpIsSynced = _tmp != 0;
+            final boolean _tmpDeductFloat;
+            final int _tmp_1;
+            _tmp_1 = _cursor.getInt(_cursorIndexOfDeductFloat);
+            _tmpDeductFloat = _tmp_1 != 0;
             final long _tmpCreatedAt;
             _tmpCreatedAt = _cursor.getLong(_cursorIndexOfCreatedAt);
             final long _tmpUpdatedAt;
             _tmpUpdatedAt = _cursor.getLong(_cursorIndexOfUpdatedAt);
-            _result = new DailyEntry(_tmpId,_tmpDate,_tmpTimeIn,_tmpTimeOut,_tmpStartOdometer,_tmpEndOdometer,_tmpGrossIncome,_tmpActualFuelCost,_tmpNotes,_tmpIsSynced,_tmpCreatedAt,_tmpUpdatedAt);
+            _result = new DailyEntry(_tmpId,_tmpDate,_tmpTimeIn,_tmpTimeOut,_tmpStartOdometer,_tmpEndOdometer,_tmpGrossIncome,_tmpActualFuelCost,_tmpNotes,_tmpIsSynced,_tmpDeductFloat,_tmpCreatedAt,_tmpUpdatedAt);
           } else {
             _result = null;
           }
@@ -425,6 +439,7 @@ public final class DailyEntryDao_Impl implements DailyEntryDao {
           final int _cursorIndexOfActualFuelCost = CursorUtil.getColumnIndexOrThrow(_cursor, "actualFuelCost");
           final int _cursorIndexOfNotes = CursorUtil.getColumnIndexOrThrow(_cursor, "notes");
           final int _cursorIndexOfIsSynced = CursorUtil.getColumnIndexOrThrow(_cursor, "isSynced");
+          final int _cursorIndexOfDeductFloat = CursorUtil.getColumnIndexOrThrow(_cursor, "deductFloat");
           final int _cursorIndexOfCreatedAt = CursorUtil.getColumnIndexOrThrow(_cursor, "createdAt");
           final int _cursorIndexOfUpdatedAt = CursorUtil.getColumnIndexOrThrow(_cursor, "updatedAt");
           final DailyEntry _result;
@@ -467,11 +482,15 @@ public final class DailyEntryDao_Impl implements DailyEntryDao {
             final int _tmp;
             _tmp = _cursor.getInt(_cursorIndexOfIsSynced);
             _tmpIsSynced = _tmp != 0;
+            final boolean _tmpDeductFloat;
+            final int _tmp_1;
+            _tmp_1 = _cursor.getInt(_cursorIndexOfDeductFloat);
+            _tmpDeductFloat = _tmp_1 != 0;
             final long _tmpCreatedAt;
             _tmpCreatedAt = _cursor.getLong(_cursorIndexOfCreatedAt);
             final long _tmpUpdatedAt;
             _tmpUpdatedAt = _cursor.getLong(_cursorIndexOfUpdatedAt);
-            _result = new DailyEntry(_tmpId,_tmpDate,_tmpTimeIn,_tmpTimeOut,_tmpStartOdometer,_tmpEndOdometer,_tmpGrossIncome,_tmpActualFuelCost,_tmpNotes,_tmpIsSynced,_tmpCreatedAt,_tmpUpdatedAt);
+            _result = new DailyEntry(_tmpId,_tmpDate,_tmpTimeIn,_tmpTimeOut,_tmpStartOdometer,_tmpEndOdometer,_tmpGrossIncome,_tmpActualFuelCost,_tmpNotes,_tmpIsSynced,_tmpDeductFloat,_tmpCreatedAt,_tmpUpdatedAt);
           } else {
             _result = null;
           }
@@ -516,6 +535,7 @@ public final class DailyEntryDao_Impl implements DailyEntryDao {
           final int _cursorIndexOfActualFuelCost = CursorUtil.getColumnIndexOrThrow(_cursor, "actualFuelCost");
           final int _cursorIndexOfNotes = CursorUtil.getColumnIndexOrThrow(_cursor, "notes");
           final int _cursorIndexOfIsSynced = CursorUtil.getColumnIndexOrThrow(_cursor, "isSynced");
+          final int _cursorIndexOfDeductFloat = CursorUtil.getColumnIndexOrThrow(_cursor, "deductFloat");
           final int _cursorIndexOfCreatedAt = CursorUtil.getColumnIndexOrThrow(_cursor, "createdAt");
           final int _cursorIndexOfUpdatedAt = CursorUtil.getColumnIndexOrThrow(_cursor, "updatedAt");
           final List<DailyEntry> _result = new ArrayList<DailyEntry>(_cursor.getCount());
@@ -559,11 +579,15 @@ public final class DailyEntryDao_Impl implements DailyEntryDao {
             final int _tmp;
             _tmp = _cursor.getInt(_cursorIndexOfIsSynced);
             _tmpIsSynced = _tmp != 0;
+            final boolean _tmpDeductFloat;
+            final int _tmp_1;
+            _tmp_1 = _cursor.getInt(_cursorIndexOfDeductFloat);
+            _tmpDeductFloat = _tmp_1 != 0;
             final long _tmpCreatedAt;
             _tmpCreatedAt = _cursor.getLong(_cursorIndexOfCreatedAt);
             final long _tmpUpdatedAt;
             _tmpUpdatedAt = _cursor.getLong(_cursorIndexOfUpdatedAt);
-            _item = new DailyEntry(_tmpId,_tmpDate,_tmpTimeIn,_tmpTimeOut,_tmpStartOdometer,_tmpEndOdometer,_tmpGrossIncome,_tmpActualFuelCost,_tmpNotes,_tmpIsSynced,_tmpCreatedAt,_tmpUpdatedAt);
+            _item = new DailyEntry(_tmpId,_tmpDate,_tmpTimeIn,_tmpTimeOut,_tmpStartOdometer,_tmpEndOdometer,_tmpGrossIncome,_tmpActualFuelCost,_tmpNotes,_tmpIsSynced,_tmpDeductFloat,_tmpCreatedAt,_tmpUpdatedAt);
             _result.add(_item);
           }
           return _result;
@@ -605,6 +629,7 @@ public final class DailyEntryDao_Impl implements DailyEntryDao {
           final int _cursorIndexOfActualFuelCost = CursorUtil.getColumnIndexOrThrow(_cursor, "actualFuelCost");
           final int _cursorIndexOfNotes = CursorUtil.getColumnIndexOrThrow(_cursor, "notes");
           final int _cursorIndexOfIsSynced = CursorUtil.getColumnIndexOrThrow(_cursor, "isSynced");
+          final int _cursorIndexOfDeductFloat = CursorUtil.getColumnIndexOrThrow(_cursor, "deductFloat");
           final int _cursorIndexOfCreatedAt = CursorUtil.getColumnIndexOrThrow(_cursor, "createdAt");
           final int _cursorIndexOfUpdatedAt = CursorUtil.getColumnIndexOrThrow(_cursor, "updatedAt");
           final List<DailyEntry> _result = new ArrayList<DailyEntry>(_cursor.getCount());
@@ -648,11 +673,15 @@ public final class DailyEntryDao_Impl implements DailyEntryDao {
             final int _tmp;
             _tmp = _cursor.getInt(_cursorIndexOfIsSynced);
             _tmpIsSynced = _tmp != 0;
+            final boolean _tmpDeductFloat;
+            final int _tmp_1;
+            _tmp_1 = _cursor.getInt(_cursorIndexOfDeductFloat);
+            _tmpDeductFloat = _tmp_1 != 0;
             final long _tmpCreatedAt;
             _tmpCreatedAt = _cursor.getLong(_cursorIndexOfCreatedAt);
             final long _tmpUpdatedAt;
             _tmpUpdatedAt = _cursor.getLong(_cursorIndexOfUpdatedAt);
-            _item = new DailyEntry(_tmpId,_tmpDate,_tmpTimeIn,_tmpTimeOut,_tmpStartOdometer,_tmpEndOdometer,_tmpGrossIncome,_tmpActualFuelCost,_tmpNotes,_tmpIsSynced,_tmpCreatedAt,_tmpUpdatedAt);
+            _item = new DailyEntry(_tmpId,_tmpDate,_tmpTimeIn,_tmpTimeOut,_tmpStartOdometer,_tmpEndOdometer,_tmpGrossIncome,_tmpActualFuelCost,_tmpNotes,_tmpIsSynced,_tmpDeductFloat,_tmpCreatedAt,_tmpUpdatedAt);
             _result.add(_item);
           }
           return _result;
@@ -696,6 +725,7 @@ public final class DailyEntryDao_Impl implements DailyEntryDao {
           final int _cursorIndexOfActualFuelCost = CursorUtil.getColumnIndexOrThrow(_cursor, "actualFuelCost");
           final int _cursorIndexOfNotes = CursorUtil.getColumnIndexOrThrow(_cursor, "notes");
           final int _cursorIndexOfIsSynced = CursorUtil.getColumnIndexOrThrow(_cursor, "isSynced");
+          final int _cursorIndexOfDeductFloat = CursorUtil.getColumnIndexOrThrow(_cursor, "deductFloat");
           final int _cursorIndexOfCreatedAt = CursorUtil.getColumnIndexOrThrow(_cursor, "createdAt");
           final int _cursorIndexOfUpdatedAt = CursorUtil.getColumnIndexOrThrow(_cursor, "updatedAt");
           final List<DailyEntry> _result = new ArrayList<DailyEntry>(_cursor.getCount());
@@ -739,11 +769,15 @@ public final class DailyEntryDao_Impl implements DailyEntryDao {
             final int _tmp;
             _tmp = _cursor.getInt(_cursorIndexOfIsSynced);
             _tmpIsSynced = _tmp != 0;
+            final boolean _tmpDeductFloat;
+            final int _tmp_1;
+            _tmp_1 = _cursor.getInt(_cursorIndexOfDeductFloat);
+            _tmpDeductFloat = _tmp_1 != 0;
             final long _tmpCreatedAt;
             _tmpCreatedAt = _cursor.getLong(_cursorIndexOfCreatedAt);
             final long _tmpUpdatedAt;
             _tmpUpdatedAt = _cursor.getLong(_cursorIndexOfUpdatedAt);
-            _item = new DailyEntry(_tmpId,_tmpDate,_tmpTimeIn,_tmpTimeOut,_tmpStartOdometer,_tmpEndOdometer,_tmpGrossIncome,_tmpActualFuelCost,_tmpNotes,_tmpIsSynced,_tmpCreatedAt,_tmpUpdatedAt);
+            _item = new DailyEntry(_tmpId,_tmpDate,_tmpTimeIn,_tmpTimeOut,_tmpStartOdometer,_tmpEndOdometer,_tmpGrossIncome,_tmpActualFuelCost,_tmpNotes,_tmpIsSynced,_tmpDeductFloat,_tmpCreatedAt,_tmpUpdatedAt);
             _result.add(_item);
           }
           return _result;
@@ -775,6 +809,7 @@ public final class DailyEntryDao_Impl implements DailyEntryDao {
           final int _cursorIndexOfActualFuelCost = CursorUtil.getColumnIndexOrThrow(_cursor, "actualFuelCost");
           final int _cursorIndexOfNotes = CursorUtil.getColumnIndexOrThrow(_cursor, "notes");
           final int _cursorIndexOfIsSynced = CursorUtil.getColumnIndexOrThrow(_cursor, "isSynced");
+          final int _cursorIndexOfDeductFloat = CursorUtil.getColumnIndexOrThrow(_cursor, "deductFloat");
           final int _cursorIndexOfCreatedAt = CursorUtil.getColumnIndexOrThrow(_cursor, "createdAt");
           final int _cursorIndexOfUpdatedAt = CursorUtil.getColumnIndexOrThrow(_cursor, "updatedAt");
           final List<DailyEntry> _result = new ArrayList<DailyEntry>(_cursor.getCount());
@@ -818,11 +853,15 @@ public final class DailyEntryDao_Impl implements DailyEntryDao {
             final int _tmp;
             _tmp = _cursor.getInt(_cursorIndexOfIsSynced);
             _tmpIsSynced = _tmp != 0;
+            final boolean _tmpDeductFloat;
+            final int _tmp_1;
+            _tmp_1 = _cursor.getInt(_cursorIndexOfDeductFloat);
+            _tmpDeductFloat = _tmp_1 != 0;
             final long _tmpCreatedAt;
             _tmpCreatedAt = _cursor.getLong(_cursorIndexOfCreatedAt);
             final long _tmpUpdatedAt;
             _tmpUpdatedAt = _cursor.getLong(_cursorIndexOfUpdatedAt);
-            _item = new DailyEntry(_tmpId,_tmpDate,_tmpTimeIn,_tmpTimeOut,_tmpStartOdometer,_tmpEndOdometer,_tmpGrossIncome,_tmpActualFuelCost,_tmpNotes,_tmpIsSynced,_tmpCreatedAt,_tmpUpdatedAt);
+            _item = new DailyEntry(_tmpId,_tmpDate,_tmpTimeIn,_tmpTimeOut,_tmpStartOdometer,_tmpEndOdometer,_tmpGrossIncome,_tmpActualFuelCost,_tmpNotes,_tmpIsSynced,_tmpDeductFloat,_tmpCreatedAt,_tmpUpdatedAt);
             _result.add(_item);
           }
           return _result;
@@ -864,6 +903,7 @@ public final class DailyEntryDao_Impl implements DailyEntryDao {
           final int _cursorIndexOfActualFuelCost = CursorUtil.getColumnIndexOrThrow(_cursor, "actualFuelCost");
           final int _cursorIndexOfNotes = CursorUtil.getColumnIndexOrThrow(_cursor, "notes");
           final int _cursorIndexOfIsSynced = CursorUtil.getColumnIndexOrThrow(_cursor, "isSynced");
+          final int _cursorIndexOfDeductFloat = CursorUtil.getColumnIndexOrThrow(_cursor, "deductFloat");
           final int _cursorIndexOfCreatedAt = CursorUtil.getColumnIndexOrThrow(_cursor, "createdAt");
           final int _cursorIndexOfUpdatedAt = CursorUtil.getColumnIndexOrThrow(_cursor, "updatedAt");
           final DailyEntry _result;
@@ -906,11 +946,15 @@ public final class DailyEntryDao_Impl implements DailyEntryDao {
             final int _tmp;
             _tmp = _cursor.getInt(_cursorIndexOfIsSynced);
             _tmpIsSynced = _tmp != 0;
+            final boolean _tmpDeductFloat;
+            final int _tmp_1;
+            _tmp_1 = _cursor.getInt(_cursorIndexOfDeductFloat);
+            _tmpDeductFloat = _tmp_1 != 0;
             final long _tmpCreatedAt;
             _tmpCreatedAt = _cursor.getLong(_cursorIndexOfCreatedAt);
             final long _tmpUpdatedAt;
             _tmpUpdatedAt = _cursor.getLong(_cursorIndexOfUpdatedAt);
-            _result = new DailyEntry(_tmpId,_tmpDate,_tmpTimeIn,_tmpTimeOut,_tmpStartOdometer,_tmpEndOdometer,_tmpGrossIncome,_tmpActualFuelCost,_tmpNotes,_tmpIsSynced,_tmpCreatedAt,_tmpUpdatedAt);
+            _result = new DailyEntry(_tmpId,_tmpDate,_tmpTimeIn,_tmpTimeOut,_tmpStartOdometer,_tmpEndOdometer,_tmpGrossIncome,_tmpActualFuelCost,_tmpNotes,_tmpIsSynced,_tmpDeductFloat,_tmpCreatedAt,_tmpUpdatedAt);
           } else {
             _result = null;
           }
@@ -1264,6 +1308,7 @@ public final class DailyEntryDao_Impl implements DailyEntryDao {
           final int _cursorIndexOfActualFuelCost = CursorUtil.getColumnIndexOrThrow(_cursor, "actualFuelCost");
           final int _cursorIndexOfNotes = CursorUtil.getColumnIndexOrThrow(_cursor, "notes");
           final int _cursorIndexOfIsSynced = CursorUtil.getColumnIndexOrThrow(_cursor, "isSynced");
+          final int _cursorIndexOfDeductFloat = CursorUtil.getColumnIndexOrThrow(_cursor, "deductFloat");
           final int _cursorIndexOfCreatedAt = CursorUtil.getColumnIndexOrThrow(_cursor, "createdAt");
           final int _cursorIndexOfUpdatedAt = CursorUtil.getColumnIndexOrThrow(_cursor, "updatedAt");
           final List<DailyEntry> _result = new ArrayList<DailyEntry>(_cursor.getCount());
@@ -1307,11 +1352,15 @@ public final class DailyEntryDao_Impl implements DailyEntryDao {
             final int _tmp;
             _tmp = _cursor.getInt(_cursorIndexOfIsSynced);
             _tmpIsSynced = _tmp != 0;
+            final boolean _tmpDeductFloat;
+            final int _tmp_1;
+            _tmp_1 = _cursor.getInt(_cursorIndexOfDeductFloat);
+            _tmpDeductFloat = _tmp_1 != 0;
             final long _tmpCreatedAt;
             _tmpCreatedAt = _cursor.getLong(_cursorIndexOfCreatedAt);
             final long _tmpUpdatedAt;
             _tmpUpdatedAt = _cursor.getLong(_cursorIndexOfUpdatedAt);
-            _item = new DailyEntry(_tmpId,_tmpDate,_tmpTimeIn,_tmpTimeOut,_tmpStartOdometer,_tmpEndOdometer,_tmpGrossIncome,_tmpActualFuelCost,_tmpNotes,_tmpIsSynced,_tmpCreatedAt,_tmpUpdatedAt);
+            _item = new DailyEntry(_tmpId,_tmpDate,_tmpTimeIn,_tmpTimeOut,_tmpStartOdometer,_tmpEndOdometer,_tmpGrossIncome,_tmpActualFuelCost,_tmpNotes,_tmpIsSynced,_tmpDeductFloat,_tmpCreatedAt,_tmpUpdatedAt);
             _result.add(_item);
           }
           return _result;
@@ -1344,6 +1393,7 @@ public final class DailyEntryDao_Impl implements DailyEntryDao {
           final int _cursorIndexOfActualFuelCost = CursorUtil.getColumnIndexOrThrow(_cursor, "actualFuelCost");
           final int _cursorIndexOfNotes = CursorUtil.getColumnIndexOrThrow(_cursor, "notes");
           final int _cursorIndexOfIsSynced = CursorUtil.getColumnIndexOrThrow(_cursor, "isSynced");
+          final int _cursorIndexOfDeductFloat = CursorUtil.getColumnIndexOrThrow(_cursor, "deductFloat");
           final int _cursorIndexOfCreatedAt = CursorUtil.getColumnIndexOrThrow(_cursor, "createdAt");
           final int _cursorIndexOfUpdatedAt = CursorUtil.getColumnIndexOrThrow(_cursor, "updatedAt");
           final DailyEntry _result;
@@ -1386,11 +1436,15 @@ public final class DailyEntryDao_Impl implements DailyEntryDao {
             final int _tmp;
             _tmp = _cursor.getInt(_cursorIndexOfIsSynced);
             _tmpIsSynced = _tmp != 0;
+            final boolean _tmpDeductFloat;
+            final int _tmp_1;
+            _tmp_1 = _cursor.getInt(_cursorIndexOfDeductFloat);
+            _tmpDeductFloat = _tmp_1 != 0;
             final long _tmpCreatedAt;
             _tmpCreatedAt = _cursor.getLong(_cursorIndexOfCreatedAt);
             final long _tmpUpdatedAt;
             _tmpUpdatedAt = _cursor.getLong(_cursorIndexOfUpdatedAt);
-            _result = new DailyEntry(_tmpId,_tmpDate,_tmpTimeIn,_tmpTimeOut,_tmpStartOdometer,_tmpEndOdometer,_tmpGrossIncome,_tmpActualFuelCost,_tmpNotes,_tmpIsSynced,_tmpCreatedAt,_tmpUpdatedAt);
+            _result = new DailyEntry(_tmpId,_tmpDate,_tmpTimeIn,_tmpTimeOut,_tmpStartOdometer,_tmpEndOdometer,_tmpGrossIncome,_tmpActualFuelCost,_tmpNotes,_tmpIsSynced,_tmpDeductFloat,_tmpCreatedAt,_tmpUpdatedAt);
           } else {
             _result = null;
           }

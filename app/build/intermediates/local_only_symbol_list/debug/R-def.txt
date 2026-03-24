@@ -176,6 +176,7 @@ id stat_days_target
 id stat_days_worked
 id stat_worst_day
 id swipe_refresh
+id switch_deduct_float
 id til_date
 id til_end_odo
 id til_fuel

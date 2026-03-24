@@ -3968,6 +3968,7 @@ id submit_area
 id supportScrollUp
 id swipe_refresh
 id switchWidget
+id switch_deduct_float
 id tabMode
 id tag_accessibility_actions
 id tag_accessibility_clickable_spans

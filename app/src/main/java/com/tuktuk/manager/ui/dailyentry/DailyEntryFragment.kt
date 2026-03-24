@@ -118,6 +118,9 @@ class DailyEntryFragment : Fragment() {
         binding.etNotes.addTextChangedListener(simpleWatcher {
             viewModel.setNotes(it)
         })
+        binding.switchDeductFloat.setOnCheckedChangeListener { _, isChecked ->
+            viewModel.setDeductFloat(isChecked)
+        }
     }
 
     private fun observeState() {
@@ -126,6 +129,10 @@ class DailyEntryFragment : Fragment() {
                 binding.etDate.setText(state.date)
                 if (state.timeIn.isNotEmpty()) binding.etTimeIn.setText(state.timeIn)
                 if (state.timeOut.isNotEmpty()) binding.etTimeOut.setText(state.timeOut)
+                
+                if (binding.switchDeductFloat.isChecked != state.deductFloat) {
+                    binding.switchDeductFloat.isChecked = state.deductFloat
+                }
 
                 // Edit mode
                 binding.toolbar.title = if (state.isEditMode) "Edit Entry" else "New Entry"

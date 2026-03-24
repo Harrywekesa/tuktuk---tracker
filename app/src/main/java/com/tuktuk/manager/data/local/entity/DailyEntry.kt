@@ -16,6 +16,7 @@ data class DailyEntry(
     val actualFuelCost: Double,
     val notes: String = "",
     val isSynced: Boolean = false,
+    val deductFloat: Boolean = true,
     val createdAt: Long = System.currentTimeMillis(),
     val updatedAt: Long = System.currentTimeMillis()
 ) {
@@ -51,7 +52,7 @@ data class DailyEntry(
         get() = netProfit * SPLIT_RATIO
 
     val bankDeposit: Double
-        get() = maintenanceSave + businessProfit - FLOAT_AMOUNT
+        get() = maintenanceSave + businessProfit - if (deductFloat) FLOAT_AMOUNT else 0.0
 
     val incomePerKm: Double
         get() = if (businessKm > 0) grossIncome / businessKm else 0.0

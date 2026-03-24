@@ -14,6 +14,7 @@ import androidx.viewbinding.ViewBindings;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.card.MaterialCardView;
+import com.google.android.material.materialswitch.MaterialSwitch;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 import com.tuktuk.manager.R;
@@ -60,6 +61,9 @@ public final class FragmentDailyEntryBinding implements ViewBinding {
 
   @NonNull
   public final TextInputEditText etTimeOut;
+
+  @NonNull
+  public final MaterialSwitch switchDeductFloat;
 
   @NonNull
   public final TextInputLayout tilDate;
@@ -119,14 +123,15 @@ public final class FragmentDailyEntryBinding implements ViewBinding {
       @NonNull TextInputEditText etFuel, @NonNull TextInputEditText etGross,
       @NonNull TextInputEditText etNotes, @NonNull TextInputEditText etStartOdo,
       @NonNull TextInputEditText etTimeIn, @NonNull TextInputEditText etTimeOut,
-      @NonNull TextInputLayout tilDate, @NonNull TextInputLayout tilEndOdo,
-      @NonNull TextInputLayout tilFuel, @NonNull TextInputLayout tilGross,
-      @NonNull TextInputLayout tilNotes, @NonNull TextInputLayout tilStartOdo,
-      @NonNull TextInputLayout tilTimeIn, @NonNull TextInputLayout tilTimeOut,
-      @NonNull Toolbar toolbar, @NonNull TextView tvKmHint, @NonNull TextView tvPreviewBank,
-      @NonNull TextView tvPreviewBiz, @NonNull TextView tvPreviewFuelStatus,
-      @NonNull TextView tvPreviewMaint, @NonNull TextView tvPreviewNet,
-      @NonNull TextView tvPreviewOwner, @NonNull TextView tvPreviewRider) {
+      @NonNull MaterialSwitch switchDeductFloat, @NonNull TextInputLayout tilDate,
+      @NonNull TextInputLayout tilEndOdo, @NonNull TextInputLayout tilFuel,
+      @NonNull TextInputLayout tilGross, @NonNull TextInputLayout tilNotes,
+      @NonNull TextInputLayout tilStartOdo, @NonNull TextInputLayout tilTimeIn,
+      @NonNull TextInputLayout tilTimeOut, @NonNull Toolbar toolbar, @NonNull TextView tvKmHint,
+      @NonNull TextView tvPreviewBank, @NonNull TextView tvPreviewBiz,
+      @NonNull TextView tvPreviewFuelStatus, @NonNull TextView tvPreviewMaint,
+      @NonNull TextView tvPreviewNet, @NonNull TextView tvPreviewOwner,
+      @NonNull TextView tvPreviewRider) {
     this.rootView = rootView;
     this.appBar = appBar;
     this.btnDelete = btnDelete;
@@ -140,6 +145,7 @@ public final class FragmentDailyEntryBinding implements ViewBinding {
     this.etStartOdo = etStartOdo;
     this.etTimeIn = etTimeIn;
     this.etTimeOut = etTimeOut;
+    this.switchDeductFloat = switchDeductFloat;
     this.tilDate = tilDate;
     this.tilEndOdo = tilEndOdo;
     this.tilFuel = tilFuel;
@@ -258,6 +264,12 @@ public final class FragmentDailyEntryBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.switch_deduct_float;
+      MaterialSwitch switchDeductFloat = ViewBindings.findChildViewById(rootView, id);
+      if (switchDeductFloat == null) {
+        break missingId;
+      }
+
       id = R.id.til_date;
       TextInputLayout tilDate = ViewBindings.findChildViewById(rootView, id);
       if (tilDate == null) {
@@ -362,9 +374,9 @@ public final class FragmentDailyEntryBinding implements ViewBinding {
 
       return new FragmentDailyEntryBinding((CoordinatorLayout) rootView, appBar, btnDelete, btnSave,
           cardKmHint, etDate, etEndOdo, etFuel, etGross, etNotes, etStartOdo, etTimeIn, etTimeOut,
-          tilDate, tilEndOdo, tilFuel, tilGross, tilNotes, tilStartOdo, tilTimeIn, tilTimeOut,
-          toolbar, tvKmHint, tvPreviewBank, tvPreviewBiz, tvPreviewFuelStatus, tvPreviewMaint,
-          tvPreviewNet, tvPreviewOwner, tvPreviewRider);
+          switchDeductFloat, tilDate, tilEndOdo, tilFuel, tilGross, tilNotes, tilStartOdo,
+          tilTimeIn, tilTimeOut, toolbar, tvKmHint, tvPreviewBank, tvPreviewBiz,
+          tvPreviewFuelStatus, tvPreviewMaint, tvPreviewNet, tvPreviewOwner, tvPreviewRider);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

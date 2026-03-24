@@ -41,14 +41,14 @@ public final class TukTukDatabase_Impl extends TukTukDatabase {
   @Override
   @NonNull
   protected SupportSQLiteOpenHelper createOpenHelper(@NonNull final DatabaseConfiguration config) {
-    final SupportSQLiteOpenHelper.Callback _openCallback = new RoomOpenHelper(config, new RoomOpenHelper.Delegate(1) {
+    final SupportSQLiteOpenHelper.Callback _openCallback = new RoomOpenHelper(config, new RoomOpenHelper.Delegate(2) {
       @Override
       public void createAllTables(@NonNull final SupportSQLiteDatabase db) {
-        db.execSQL("CREATE TABLE IF NOT EXISTS `daily_entries` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `date` TEXT NOT NULL, `timeIn` TEXT NOT NULL, `timeOut` TEXT NOT NULL, `startOdometer` REAL NOT NULL, `endOdometer` REAL NOT NULL, `grossIncome` REAL NOT NULL, `actualFuelCost` REAL NOT NULL, `notes` TEXT NOT NULL, `isSynced` INTEGER NOT NULL, `createdAt` INTEGER NOT NULL, `updatedAt` INTEGER NOT NULL)");
+        db.execSQL("CREATE TABLE IF NOT EXISTS `daily_entries` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `date` TEXT NOT NULL, `timeIn` TEXT NOT NULL, `timeOut` TEXT NOT NULL, `startOdometer` REAL NOT NULL, `endOdometer` REAL NOT NULL, `grossIncome` REAL NOT NULL, `actualFuelCost` REAL NOT NULL, `notes` TEXT NOT NULL, `isSynced` INTEGER NOT NULL, `deductFloat` INTEGER NOT NULL, `createdAt` INTEGER NOT NULL, `updatedAt` INTEGER NOT NULL)");
         db.execSQL("CREATE TABLE IF NOT EXISTS `expenses` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `date` TEXT NOT NULL, `category` TEXT NOT NULL, `description` TEXT NOT NULL, `mechanicVendor` TEXT NOT NULL, `cost` REAL NOT NULL, `paidFrom` TEXT NOT NULL, `receiptNotes` TEXT NOT NULL, `isSynced` INTEGER NOT NULL, `createdAt` INTEGER NOT NULL, `updatedAt` INTEGER NOT NULL)");
         db.execSQL("CREATE TABLE IF NOT EXISTS `app_settings` (`id` INTEGER NOT NULL, `ownerName` TEXT NOT NULL, `riderName` TEXT NOT NULL, `dailyGrossTarget` REAL NOT NULL, `minimumGross` REAL NOT NULL, `startingFloat` REAL NOT NULL, `commuteKmOneWay` REAL NOT NULL, `targetWorkingDays` INTEGER NOT NULL, `themeMode` TEXT NOT NULL, `lastSyncedAt` INTEGER NOT NULL, `currencySymbol` TEXT NOT NULL, PRIMARY KEY(`id`))");
         db.execSQL("CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)");
-        db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'a17758d94770125e76f1635bdaec6166')");
+        db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '0fbb63f7122d9a0e70f5e0dcba7b38b2')");
       }
 
       @Override
@@ -99,7 +99,7 @@ public final class TukTukDatabase_Impl extends TukTukDatabase {
       @NonNull
       public RoomOpenHelper.ValidationResult onValidateSchema(
           @NonNull final SupportSQLiteDatabase db) {
-        final HashMap<String, TableInfo.Column> _columnsDailyEntries = new HashMap<String, TableInfo.Column>(12);
+        final HashMap<String, TableInfo.Column> _columnsDailyEntries = new HashMap<String, TableInfo.Column>(13);
         _columnsDailyEntries.put("id", new TableInfo.Column("id", "INTEGER", true, 1, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsDailyEntries.put("date", new TableInfo.Column("date", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsDailyEntries.put("timeIn", new TableInfo.Column("timeIn", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
@@ -110,6 +110,7 @@ public final class TukTukDatabase_Impl extends TukTukDatabase {
         _columnsDailyEntries.put("actualFuelCost", new TableInfo.Column("actualFuelCost", "REAL", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsDailyEntries.put("notes", new TableInfo.Column("notes", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsDailyEntries.put("isSynced", new TableInfo.Column("isSynced", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsDailyEntries.put("deductFloat", new TableInfo.Column("deductFloat", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsDailyEntries.put("createdAt", new TableInfo.Column("createdAt", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsDailyEntries.put("updatedAt", new TableInfo.Column("updatedAt", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
         final HashSet<TableInfo.ForeignKey> _foreignKeysDailyEntries = new HashSet<TableInfo.ForeignKey>(0);
@@ -165,7 +166,7 @@ public final class TukTukDatabase_Impl extends TukTukDatabase {
         }
         return new RoomOpenHelper.ValidationResult(true, null);
       }
-    }, "a17758d94770125e76f1635bdaec6166", "be552bb23e6f2f61bbee84b42102be02");
+    }, "0fbb63f7122d9a0e70f5e0dcba7b38b2", "29aeefebc1e6245a196c2b4f9d695ebc");
     final SupportSQLiteOpenHelper.Configuration _sqliteConfig = SupportSQLiteOpenHelper.Configuration.builder(config.context).name(config.name).callback(_openCallback).build();
     final SupportSQLiteOpenHelper _helper = config.sqliteOpenHelperFactory.create(_sqliteConfig);
     return _helper;
